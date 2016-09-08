@@ -1,0 +1,16 @@
+{%extends 'login/base.html'%}
+
+{%load static%}
+<link rel="stylesheet" href="{% static 'search/search.css'%}">
+
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            {%for i in ret_obj%}
+                <p>{{i}}</p>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{%endblock%}

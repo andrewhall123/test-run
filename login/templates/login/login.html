@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Business</title>
+    {%load static%}
+
+    <link rel="stylesheet" href="{%static 'login/reset.css' %}">
+
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+        <link rel="stylesheet" href="{%static 'login/style.css' %}">
+
+
+
+
+  </head>
+
+  <body>
+
+
+<!-- Form Mixin-->
+<!-- Input Mixin-->
+<!-- Button Mixin-->
+<!-- Pen Title-->
+<div class="pen-title">
+  <h1>(Company Name)</h1><h1>(Or Whatever)</h1><span>Pen <i class='fa fa-paint-brush'></i> + <i class='fa fa-code'></i> by <a href=''>Nobody</a></span>
+</div>
+<!-- Form Module-->
+<div class="module form-module">
+  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+    <div class="tooltip">Click Me</div>
+  </div>
+  <div class="form">
+    <h2>Login to your account</h2>
+    <form action="" method="post">{%csrf_token%}
+        {{form.username.errors}}
+    {{form.username.label_tag}} {{form.username}}
+      {{form.password.errors}}
+    {{form.password.label_tag}} {{form.password}}
+      <button>Login</button>
+    </form>
+  </div>
+
+  <div class="cta"><a href="">Forgot your password?</a></div>
+    <div class="cta"><a href="{%url 'login:signup' %}">Register</a></div>
+</div>
+  </body>
+</html>
+
+<!--<link rel="stylesheet" type="text/css" href="{% static 'login/login.css'%}"/>
+<div>
+<form action="" method="post" class="bag">{%csrf_token%}
+    <div class="cent">
+    {{form.username.errors}}
+    {{form.username.label_tag}} {{form.username}}
+    </div>
+    <div class="cent2">
+    {{form.password.errors}}
+    {{form.password.label_tag}} {{form.password}}
+    </div>
+     <input type="submit" value="Submit" class="sub">
+</form>
+    <p id="colo">{{error}}</p>
+</div>

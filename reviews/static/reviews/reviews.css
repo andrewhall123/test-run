@@ -1,0 +1,27 @@
+
+.borders{
+    padding:20px;
+    background:#778899;
+    width:450px;
+}
+
+.quest{
+    position:relative;
+    top:0;
+}
+
+
+label, input[type=radio]{
+    position:relative;
+    display:block-inline;
+    width:100px;
+    background:#FFFFFF;
+    cursor:pointer;
+    border:2px solid transparent;
+}
+
+div label input[type=radio]:checked{
+    position:relative;
+    background-color:yellow;
+}
+

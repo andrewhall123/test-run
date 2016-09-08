@@ -1,0 +1,87 @@
+
+.reviews{
+    position:absolute;
+    display:block;
+    width:400px;
+    height:500px;
+    top:0px;
+    left:570px;
+    text-align:center;
+}
+
+.actual-reviews{
+    background-color:red;
+    border-style:solid;
+    border-width:5px;
+}
+
+.picbord{
+    background-color:black;
+    width:315px;
+    border-style:solid;
+    border-width:8px;
+}
+
+
+.pic{
+    position:relative;
+    -webkit-shadow:inset 0 0 4px rgba(0,0,0,1), inset 0 2px 1px rgba(255,255,255,.5), inset 0 -9px 2px rgba(0,0,0,.6), inset 0 -12px 2px rgba(255,255,255,.3);
+    -moz-box-shadow: inset 0 0 4px rgba(0,0,0,1), inset 0 2px 1px rgba(255,255,255,.5), inset 0 -9px 2px rgba(0,0,0,.6), inset 0 -12px 2px rgba(255,255,255,.3);
+    box-shadow: inset 0 0 4px rgba(0,0,0,1), inset 0 2px 1px rgba(255,255,255,.5), inset 0 -9px 2px rgba(0,0,0,.6), inset 0 -12px 2px rgba(255,255,255,.3);
+    -webkit-border-radius:20px;
+    border-radius:120px;
+    height:250px;
+}
+
+.profile-card{
+    position:relative;
+    right:10px;
+    margin:0 auto;
+    text-align:center;
+    padding:6px 0;
+}
+
+address{
+    display:block;
+    font-style:italic;
+    position:relative;
+    top:350px;
+    left:400px;
+}
+
+.bio{
+    width:20%;
+    position:relative;
+    top:5px;
+    left:55px;
+    text-align:center;
+    padding:6px 0;
+}
+
+#in{
+    padding-left:3em;
+}
+
+.stats{
+    position:relative;
+    left:400px;
+    bottom:200px;
+}
+
+.tab{
+    padding-left:3.5em;
+}
+
+#rightside{
+    position:absolute;
+    right:165px;
+}
+
+#setBack{
+    position:absolute;
+    display:block;
+    width:340px;
+    background-color:yellow;
+    border-style:solid;
+    border-width:5px;
+}

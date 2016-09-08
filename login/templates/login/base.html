@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{%static 'login/base.css'%}">
+        <style>
+        .navbar{
+            margin-top:20px;
+        }
+        </style>
+</head>
+<body>
+<div class="container">
+    <nav role="navigation" class="navbar navbar-inverse" id="nav">
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="">Home</a> </li>
+                <li class="dropdown"><a class="dropbtn"href="{%url 'user_home:user_home' user=request.user.username%}">Account</a>
+                    <div class="dropdown-content">
+                        <form action="{%url 'user_home:user_home' user=request.user.username%}" method="get" class="hovCol">
+                            <input type="submit" id="dropdown-form-edit" value="Edit Account" name="edit_image">
+                        </form>
+                    </div>
+                </li>
+                <li><a href="">Ask a Question</a> </li>
+                <li><a href="">Videos</a> </li>
+                <li><a href="{%url 'employees:review'%}" class="dropbtn"> Employees</a></li>
+                <li><form class="navbar-form navbar-right" role="search" action="{%url 'search:search'%}" method="get">
+                    <input type="text" name="q" placeholder="Search" value="{{request.GET.q}}">
+                    <input type="submit" value="Search"/>
+                    {{search_form}}
+                </form>
+                </li>
+                {%if request.user != None%}
+                <li class="log"><a href="{%url 'login:account_login'%}">Logout</a> </li>
+                {%else%}
+                <li><a href="">Login</a></li>
+                {%endif%}
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+
+<div class="container">
+    <div class="row" >
+        <div id="leftside">
+            Ads
+        </div>
+        <div id="ads-right">
+            More ads or something else
+        </div>
+    </div>
+</div>
+
+{%block content%}
+
+{%endblock%}
+
+
+</body>
+</html>

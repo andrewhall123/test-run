@@ -1,0 +1,30 @@
+.cent{
+    position:fixed;
+    top:416px;
+    right:761px;
+}
+
+.cent2{
+    position:fixed;
+    top:450px;
+    right:761px;
+}
+
+.cent3{
+    position:fixed;
+    right:800px;
+    top:520px;
+}
+
+.sub{
+    position:fixed;
+    right:1020px;
+    top:490px;
+}
+
+#colo{
+    color:red;
+    position:fixed;
+    left:735px;
+    bottom:350px;
+}

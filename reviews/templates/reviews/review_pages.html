@@ -1,0 +1,24 @@
+{%extends 'login/base.html'%}
+{%load static%}
+
+{%block content%}
+<link rel="stylesheet" href="{%static 'reviews/page.css'%}">
+<div class="container" align="center">
+    <p></p><br/><br/>
+    {%for review in object_list%}
+    {%if review != '0.0' and review != '0' %}
+    {%if review.written_review is not None%}
+    {{review.written_review}}
+    {%endif%}
+    {{review.rev}}
+    {%endif%}
+    {%if request.user == review.user_being_reviewed%}
+    <p><a href="{%url 'payment:pay' pk=review.pk%}">Pay to delete</a></p>
+    {%else%}
+    <p></p>
+    {%endif%}
+    {%endfor%}
+
+    {%include 'reviews/pagination.html'%}
+</div>
+    {%endblock%}

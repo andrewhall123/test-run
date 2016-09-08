@@ -1,0 +1,20 @@
+{%extends 'login/base.html'%}
+{%block content%}
+
+{%load static%}
+<link rel="stylesheet" href="{%static 'reviews/reviews.css'%}">
+<div class="container" align="center">
+    <div class="borders">
+        <form action="" method="post">{%csrf_token%}
+            {%for radio in form%}
+
+                <h3>{{radio.label}}</h3>
+                {%for i in radio%}
+                <p><p><p><div class="check">{{i}}</div></p></p></p>
+                {%endfor%}
+            {%endfor%}
+            <input type="submit">
+        </form>
+    </div>
+</div>
+{%endblock%}

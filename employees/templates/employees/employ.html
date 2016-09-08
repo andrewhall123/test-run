@@ -1,0 +1,18 @@
+{%extends 'login/base.html'%}
+{%block content%}
+{%load static%}
+<link rel="stylesheet" href="{%static 'employees/employ.css'%}">
+<div class="container">
+<ul id="wid">
+    {%for i in users%}
+    <div class="container" id="out">
+        <li id="texx"><span class="user" ><a href="{%url 'user_home:user_home' user=i.user%}" >{{i.user}}</a></span>
+        <span class="floats">Review Score: {{i.user_review|floatformat:2}}</span>
+        {%if i.image%}
+            <span class="im"><img src="{{i.image.url}}" alt="No Pic" width="100" height="100"><br/><br/></span></li>
+        {%endif%}
+    </div>
+        {%endfor%}
+</ul>
+</div>
+{%endblock%}

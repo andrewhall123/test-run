@@ -1,0 +1,96 @@
+{%extends 'login/base.html'%}
+{%load cache%}
+{%cache 500 content%}
+{%block content%}
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'user_home/user_home.css'%}"/>
+{%if account_form is None%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+    <div class="reviews">
+        <div class="actual-reviews">
+        {%if request.user != account.user%}
+        <p>Click <a href="{%url 'reviews:reviews' user=account.user.username%}">here</a> to submit review</p>
+        {%endif%}
+            <p>Reviews about {{account.user.username}}</p>
+            {%if account.user_review !=  0.0%}
+            <p>Latest Reviews:</p>
+            {%for i in review_short%}
+            <p>"{{i.written_review}}"</p>
+            {%endfor%}
+            <p>Average rating on scale <br/><center>out of four:</center></p>
+        <p>{{account.user_review}}</p>
+            {%if account.all != 0%}
+            <p>Click <a href="{%url 'reviews:list' user=account.user.username%}">here</a> for all reviews</p>
+            {%endif%}
+            {%else%}
+            <p>No reviews so far</p>
+            {%endif%}
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+{%endif%}
+
+<div class="container">
+{%if account_form is not None%}
+<div class="submit_pic">
+<form action="{%url 'user_home:travers' user=request.user.username%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{account_form.as_p}}
+    <input type="submit" value="Give it a title">
+</form>
+</div>
+{%endif%}
+
+<div>
+    {%if account.image%}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="picbord">
+                    <img class="pic" src="{{account.image.url}}" alt="" width="300" border="1"/>
+                </div>
+
+            </div>
+        </div>
+    {%endif%}
+        <address>
+            Contact {{request.user.username}} at {{request.user.email}}
+        </address>
+        <li class="profile-card">
+            <h1>About {{account.user.username}}:</h1>
+            {%if account.user_job is not None%}
+            <h2>{{account.user_job}}(Occupation)</h2>
+            {%endif%}
+            <div class="">
+            {%if account.account_bio is not None%}
+            <p>Bio:</p>
+            <p id="in">{{account.account_bio|linebreaks}}</p>
+            {%endif%}
+            </div>
+        </li>
+</div>
+    </div>
+
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3" id="rightside">
+            <div class="container" id="setBack">
+                <p>Our Most Popular Jobs:</p>
+                {%for i in job_stats%}
+                {{i}}
+                {%endfor%}<br/>
+                {%for i in job_stats.values%}
+                <span class="tab">{{i}}</span>
+                {%endfor%}<br/>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+
+{%endcache%}
